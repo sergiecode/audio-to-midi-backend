@@ -6,7 +6,6 @@ This module handles the conversion of audio files to MIDI using AI models.
 Currently implements a placeholder that returns an empty MIDI file for testing.
 """
 
-import os
 import logging
 import pretty_midi
 import librosa

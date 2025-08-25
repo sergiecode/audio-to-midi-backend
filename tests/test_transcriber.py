@@ -5,7 +5,6 @@ Created by Sergie Code
 
 import os
 import tempfile
-import pytest
 from src.transcription.transcriber import AudioTranscriber
 
 

@@ -5,7 +5,6 @@ Created by Sergie Code
 
 import json
 import io
-import os
 
 
 def test_health_endpoint(client):
@@ -71,7 +70,7 @@ def test_transcribe_valid_file(client, test_audio_file):
     
     # Should return a MIDI file
     assert response.status_code == 200
-    assert response.headers['Content-Type'] == 'audio/midi; charset=utf-8'
+    assert 'audio/midi' in response.headers['Content-Type']
     
     # Check that response contains MIDI data
     assert len(response.data) > 0

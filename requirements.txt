@@ -14,12 +14,12 @@ pretty_midi==0.2.10
 mido==1.3.0
 
 # Machine Learning (for future ML model integration)
-tensorflow==2.15.0
-magenta==2.1.4
+tensorflow>=2.16.0
+# magenta==2.1.4  # Temporarily commented out - install manually if needed
 
 # Utilities
-numpy==1.24.3
-scipy==1.11.4
+numpy>=1.24.0
+scipy>=1.11.0
 requests==2.31.0
 
 # Development and Testing

@@ -7,7 +7,6 @@ import os
 import sys
 import pytest
 import tempfile
-from flask import Flask
 
 # Add src to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
@@ -49,6 +48,7 @@ def test_audio_file():
     
     # Create temporary file
     temp_file = tempfile.NamedTemporaryFile(suffix='.wav', delete=False)
+    temp_file.close()  # Close file handle on Windows
     
     with wave.open(temp_file.name, 'w') as wav_file:
         wav_file.setnchannels(1)  # Mono
@@ -58,5 +58,8 @@ def test_audio_file():
     
     yield temp_file.name
     
-    # Cleanup
-    os.unlink(temp_file.name)
+    # Cleanup - with better error handling for Windows
+    try:
+        os.unlink(temp_file.name)
+    except (OSError, PermissionError):
+        pass  # File might be in use, skip cleanup

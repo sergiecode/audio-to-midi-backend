@@ -12,7 +12,7 @@ from flask import Flask, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import RequestEntityTooLarge
 from src.transcription.transcriber import AudioTranscriber
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 
 # Configure logging
@@ -45,7 +45,7 @@ def health_check():
     return jsonify({
         'status': 'healthy',
         'service': 'audio-to-midi-backend',
-        'timestamp': datetime.utcnow().isoformat()
+        'timestamp': datetime.now(timezone.utc).isoformat()
     }), 200
 
 @app.route('/transcribe', methods=['POST'])
