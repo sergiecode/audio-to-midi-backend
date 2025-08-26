@@ -354,10 +354,6 @@ export MAX_FILE_SIZE_MB=50
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👨‍💻 About the Creator
 
 **Sergie Code** is a software engineer passionate about creating AI tools for musicians. Through YouTube tutorials and open-source projects, Sergie helps developers build innovative music technology solutions.
